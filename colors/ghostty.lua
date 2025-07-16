@@ -1,0 +1,73 @@
+local colorbuddy = require("colorbuddy")
+
+colorbuddy.colorscheme("ghostty")
+
+local Color = colorbuddy.Color
+local Group = colorbuddy.Group
+local colors = colorbuddy.colors
+local groups = colorbuddy.groups
+local styles = colorbuddy.styles
+
+Color.new("background", "#292c33")
+Color.new("foreground", "#ffffff")
+Color.new("black", "#1d1f21")
+-- TODO: fix this
+Color.new("red", "#bf6b69")
+Color.new("green", "#b7bd73")
+Color.new("yellow", "#e9c880")
+Color.new("blue", "#88a1bb")
+Color.new("magenta", "#ad95b8")
+Color.new("cyan", "#95bdb7")
+Color.new("white", "#c5c8c6")
+Color.new("bright_black", "#666666")
+Color.new("bright_red", "#c55757")
+Color.new("bright_green", "#bcc95f")
+Color.new("bright_yellow", "#e1c65e")
+Color.new("bright_blue", "#83a5d6")
+Color.new("bright_magenta", "#bc99d4")
+Color.new("bright_cyan", "#83beb1")
+Color.new("bright_white", "#eaeaea")
+Color.new("selection_bg", "#ffffff")
+Color.new("selection_fg", "#292c33")
+Color.new("cursor", "#ffffff")
+
+Color.new("diff_add", "#004400")
+Color.new("diff_del", "#440000")
+Color.new("diff_change", "#000044")
+
+Group.new("Normal", colors.foreground, colors.background)
+Group.new("Comment", colors.bright_black, groups.Normal, styles.italic)
+Group.new("Constant", colors.yellow)
+Group.new("Number", colors.white)
+Group.new("Operator", colors.white)
+Group.new("Assignment", colors.white)
+Group.new("String", colors.green)
+Group.new("Character", colors.green)
+Group.new("@character.special", colors.green, nil, styles.bold)
+Group.new("Identifier", colors.blue)
+Group.new("PreProc", colors.magenta)
+Group.new("Type", colors.cyan)
+Group.new("Special", colors.bright_magenta)
+Group.new("Underlined", colors.bright_blue, nil, styles.underline)
+Group.new("CursorLine", nil, colors.background:light())
+Group.new("Visual", nil, groups.CursorLine, groups.Normal)
+Group.new("Cursor", colors.bg, colors.cursor, groups.Normal)
+Group.new("LineNr", colors.bright_black, colors.background)
+Group.new("StatusLine", colors.white, colors.black)
+Group.new("Error", colors.red, nil, styles.bold)
+Group.new("DiagnosticError", colors.red)
+Group.new("Warning", colors.bright_yellow)
+Group.new("Info", colors.bright_green)
+Group.new("Hint", colors.bright_cyan)
+Group.new("FloatBorder", colors.white)
+Group.new("NormalFloat", groups.Normal)
+
+Group.new("DiffAdd", nil, colors.diff_add)
+Group.new("diffadded", groups.DiffAdd, groups.DiffAdd)
+Group.new("DiffDelete", nil, colors.diff_del)
+Group.new("diffremoved", groups.DiffDelete, groups.DiffDelete)
+Group.new("DiffChange", nil, colors.diff_change)
+Group.new("diffLine", groups.DiffChange, groups.DiffChange)
+
+Group.new("AvantePromptInputBorder", colors.white, nil)
+Group.new("AvantePromptInput", groups.Normal, groups.Normal)
